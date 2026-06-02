@@ -1,0 +1,29 @@
+<status>
+    <label len=9 color="white">UART</label>
+    <label len=2 color="grey" color_on="red">TX</label>
+    <label len=2 color="grey" color_on="red">TX</label>
+    <label len=1 color="red" color_on="green">V</label>
+</status>
+<parameters>
+    <label len=14 color="blue">[Параметры]</label>
+</parameters>
+<display_mode color="grey" bg_selected="blue" color_on="white">
+    <label len=5>Sym</label>
+    <label len=5>Hex</label>
+    <label len=4>Bin</label>
+</display_mode>
+<page>
+
+    <page_selector color_selected="white" bg_selected="blue">
+        <label len=3 color="blue">"[<]"</label>
+        <label len=2 color="white">"0"</label>
+        <label len=4 color="white">"-12/"</label>
+        <label len=2 color="white">"0"</label>
+        <label len=3 color="blue">"[>]"</label>
+    </page_selector>
+    <frame>
+        <label len=2></label>
+    </frame>
+
+
+</page>
