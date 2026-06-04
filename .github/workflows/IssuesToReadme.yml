@@ -36,9 +36,6 @@ jobs:
         run: |
           export NO_COLOR=1
           export GH_FORCE_TTY=1
-
-      - name: Setup dependencies
-        run: python -m pip install urllib
       
       - name: Update issues in README
         env:
