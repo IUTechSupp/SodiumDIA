@@ -23,6 +23,7 @@
 
 <!-- ISSUE:3 end -->
 
+#### 3.2.3.1 Шрифт
 <!-- ISSUE:6 start -->
 
 *Issue #6:* [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
@@ -41,6 +42,9 @@
 
 В МК отрисовщик шрифта имеет буфер 9х9 бит. При отрисовке символа в этот буфер загружается соответствующий символ и отрисовывается по заданным координатам по правилу “фоновый цвет если 0, цвет символа если 1”.
 Для работы с дисплеем используется модифицированная библиотека ST7735. 
+
+
+#### 3.2.3.1 Вывод символа в ячее сетки
 <!-- ISSUE:4 start -->
 
 *Issue #4:* [![Static Badge](https://img.shields.io/badge/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0%20%D0%B2%20%D1%8F%D1%87%D0%B5%D0%B5%20%D1%81%D0%B5%D1%82%D0%BA%D0%B8-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/4)
@@ -61,6 +65,7 @@ _border_y = (160 % FONT_HEIGHT) / 2 = 3.5 ~ 3_
 
 <!-- ISSUE:4 end -->
 
+### 3.4.3.3 Вывод слова
 <!-- ISSUE:5 start -->
 
 *Issue #5:* [![Static Badge](https://img.shields.io/badge/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%2C%20%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%8F%D1%87%D0%B5%D0%B8%20%D1%81%D0%B5%D1%82%D0%BA%D0%B8-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/5)
@@ -77,6 +82,9 @@ _N ≤ 17 - pos_x_
 
 <!-- ISSUE:5 end -->
 
+
+
+### 3.4.3.4 Рендер строк
 <!-- ISSUE:6 start -->
 
 *Issue #6:* [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
