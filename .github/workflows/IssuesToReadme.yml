@@ -65,7 +65,7 @@ jobs:
               # Получаем вывод задачи через gh
               try:
                   result = subprocess.run(
-                      ['gh', 'issue', 'view', issue_num, '--repo', repo, '--json title,body,author,state,number | jq -r \"', format_string, '\"'],
+                      ['gh', 'issue', 'view', issue_num, '--repo', repo, '--json', 'title,body,author,state,number', '--jq', format_string],
                       capture_output=True, text=True, check=True, timeout=30
                   )
 
