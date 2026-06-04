@@ -54,10 +54,10 @@ jobs:
           COLOR_IN_REVIEW = "grey"
           COLOR_DONE = "blue"
 
-          issue_url = f'https://github.com/{repo}/issues/(.number)'
-          status_badge_string = f'[![Static Badge](https://img.shields.io/badge/-\(.projectItems[].status.name)-COLOR_\(.projectItems[].status.name))]({issue_url})'
+          issue_url = f'https://github.com/{repo}/issues/\\(.number)'
+          status_badge_string = f'[![Static Badge](https://img.shields.io/badge/-\\(.projectItems[].status.name)-COLOR_\\(.projectItems[].status.name))]({issue_url})'
           
-          format_string = f'"### Issue #\(.number): \(.title) {status_badge_string} \n\n**Автор:** @\(.author.login) | **Статус:** \(.state)\n\n\(.body)\n"'
+          format_string = f'"### Issue #\\(.number): \\(.title) {status_badge_string} \n\n**Автор:** @\\(.author.login) | **Статус:** \\(.state)\n\n\\(.body)\n"'
           
           with open(readme_path, 'r') as f:
               content = f.read()
