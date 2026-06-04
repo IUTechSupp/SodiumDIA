@@ -3,21 +3,17 @@
 
 <!-- ISSUE:5 start -->
 
-```
-title:	Вывод слова, начиная с ячеи сетки
-state:	OPEN
-author:	SodAcetate
-labels:	
-comments:	0
-assignees:	
-projects:	
-milestone:	
-number:	5
---
-Функция вывода слова должна принимать x и y координаты начальной ячеи слова и отрисовывать N символов, начиная с этой ячеи, где:
-_N ≤ 17 - pos_x_
-В случае выхода за пределы экрана слово обрывается.
-```
+⚠️ Ошибка при загрузке задачи #5:
+unknown flag: --json title,body,author,state,number | jq -r "
+
+Usage:  gh issue view {<number> | <url>} [flags]
+
+Flags:
+  -c, --comments          View issue comments
+  -q, --jq expression     Filter JSON output using a jq expression
+      --json fields       Output JSON with the specified fields
+  -t, --template string   Format JSON output using a Go template; see "gh help formatting"
+  -w, --web               Open an issue in the browser
 
 <!-- ISSUE:5 end -->
 
