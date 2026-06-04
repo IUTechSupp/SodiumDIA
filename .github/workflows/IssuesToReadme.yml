@@ -84,12 +84,12 @@ jobs:
                   badge_md = f"[![Static Badge]({badge_url})]({issue_url})"
 
                   # Формируем итоговый Markdown
-                  output = f"""### {data['number']}: {data['title']} {badge_md} \n\n \
-                  **Автор:** @{data['author']['login']} \n\n \
-                  ```\n \
-                  {data['body']}\n \
-                  ```\n \
-                  """
+                  output = f"""### {data['number']}: {data['title']} {badge_md} \n\n
+          **Автор:** @{data['author']['login']} \n\n \
+          ```\n \
+          {data['body']}\n \
+          ```\n \
+          """
               except subprocess.CalledProcessError as e:
                   output = f"⚠️ Ошибка при загрузке задачи #{issue_num}:\n{e.stderr.strip()}"
               except Exception as e:
