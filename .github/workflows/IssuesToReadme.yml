@@ -49,6 +49,8 @@ jobs:
           readme_path = 'README.md'
           repo = '${{ github.repository }}'
 
+          format_string = '"### Issue #\(.number): \(.title)\n\n**Автор:** @\(.author.login) | **Статус:** \(.state)\n\n\(.body)\n"'
+          
           with open(readme_path, 'r') as f:
               content = f.read()
 
@@ -63,9 +65,12 @@ jobs:
               # Получаем вывод задачи через gh
               try:
                   result = subprocess.run(
-                      ['gh', 'issue', 'view', issue_num, '--repo', repo],
+                      ['gh', 'issue', 'view', issue_num, '--repo', repo, '--json title,body,author,state,number | jq -r \"', format_string, '\"'],
                       capture_output=True, text=True, check=True, timeout=30
                   )
+
+                  
+                  
                   output = result.stdout.strip()
               except subprocess.CalledProcessError as e:
                   output = f"⚠️ Ошибка при загрузке задачи #{issue_num}:\n{e.stderr.strip()}"
@@ -73,7 +78,7 @@ jobs:
                   output = f"⚠️ Непредвиденная ошибка: {e}"
 
               # Возвращаем маркеры с новым содержимым между ними
-              return f"{start_marker}\n\n```\n{output}\n```\n\n{end_marker}"
+              return f"{start_marker}\n\n{output}\n\n{end_marker}"
 
           
           new_content = re.sub(pattern, replacer, content, flags=re.DOTALL)
