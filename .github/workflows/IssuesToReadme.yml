@@ -90,9 +90,7 @@ jobs:
                   # Формируем итоговый Markdown
                   output = f"""### Issue #{data['number']}: {data['title']} {badge_md} \n\n
           **Автор:** @{data['author']['login']} \n\n \
-          ```\n\
-          {body}\
-          ```\n\
+          {body}\n\
           """
               except subprocess.CalledProcessError as e:
                   output = f"⚠️ Ошибка при загрузке задачи #{issue_num}:\n{e.stderr.strip()}"
