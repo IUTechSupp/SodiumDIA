@@ -48,16 +48,7 @@ jobs:
 
           readme_path = 'README.md'
           repo = '${{ github.repository }}'
-
-          jq_filter = "".join([
-              '"### Issue #\\(.number): \\(.title) ',
-              '[![Static Badge](https://img.shields.io/badge/-\\(.projectItems[].status.name)-COLOR_\\(.projectItems[].status.name))](',
-              'https://github.com/',
-              repo,
-              '/issues/\\(.number))\\n\\n',
-              '**Автор:** @\\(.author.login)\\n\\n',
-              '\\(.body)"'
-          ])
+          
           with open(readme_path, 'r') as f:
               content = f.read()
 
