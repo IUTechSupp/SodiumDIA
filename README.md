@@ -3,12 +3,31 @@
 
 <!-- ISSUE:2 start -->
 
+title:	Модуль ввода
+state:	OPEN
+author:	SodAcetate
+labels:	
+comments:	0
+assignees:	
+projects:	
+milestone:	
+number:	2
+--
+
 <!-- ISSUE:2 end -->
 
 
 <!-- ISSUE:3 start -->
 
-⚠️ Ошибка при загрузке задачи #3:
-GraphQL: Could not resolve to an issue or pull request with the number of 3. (repository.issue)
+title:	Графический интерфейс
+state:	OPEN
+author:	SodAcetate
+labels:	
+comments:	0
+assignees:	
+projects:	
+milestone:	
+number:	3
+--
 
 <!-- ISSUE:3 end -->
