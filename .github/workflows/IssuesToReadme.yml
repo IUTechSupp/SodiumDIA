@@ -88,7 +88,7 @@ jobs:
                   body = data['body'].replace('\n', '\n\n')
                   
                   # Формируем итоговый Markdown
-                  output = f"""{badge_md}\n\n{body}\n---\"""
+                  output = f"""{badge_md}\n\n{body}\n---"""
               except subprocess.CalledProcessError as e:
                   output = f"⚠️ Ошибка при загрузке задачи #{issue_num}:\n{e.stderr.strip()}"
               except Exception as e:
