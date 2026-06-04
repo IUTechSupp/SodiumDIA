@@ -72,8 +72,8 @@ jobs:
                   data = json.loads(result.stdout)
                   # Извлекаем статус из первого попавшегося projectItem (если есть)
                   status = "unknown"
+                  print(data)
                   if data.get('projectItems'):
-                      print(data.get('projectItems'))
                       # Берём первый элемент, у него есть status.name
                       status = data['projectItems'][0].get('status', {}).get('name', 'no status')
 
@@ -88,7 +88,9 @@ jobs:
                   output = f"""### {data['number']}: {data['title']} {badge_md} \n\n
           **Автор:** @{data['author']['login']} \n\n \
           ```\n \
-          {data['body']}\n \
+          <div style="white-space: pre-wrap;"> \
+          {data['body']} \
+          </div> \
           ```\n \
           """
               except subprocess.CalledProcessError as e:
