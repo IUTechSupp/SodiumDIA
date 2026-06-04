@@ -84,14 +84,15 @@ jobs:
                   issue_url = f"https://github.com/{repo}/issues/{issue_num}"
                   badge_md = f"[![Static Badge]({badge_url})]({issue_url})"
 
+                  # Корректируем переносы строк
+                  body = data['body'].replace('\n', '\n\n')
+                  
                   # Формируем итоговый Markdown
-                  output = f"""### {data['number']}: {data['title']} {badge_md} \n\n
+                  output = f"""### Issue #{data['number']}: {data['title']} {badge_md} \n\n
           **Автор:** @{data['author']['login']} \n\n \
-          ```\n \
-          <div style="white-space: pre-wrap;"> \
-          {data['body']} \
-          </div> \
-          ```\n \
+          ```\n\
+          {body}\
+          ```\n\
           """
               except subprocess.CalledProcessError as e:
                   output = f"⚠️ Ошибка при загрузке задачи #{issue_num}:\n{e.stderr.strip()}"
