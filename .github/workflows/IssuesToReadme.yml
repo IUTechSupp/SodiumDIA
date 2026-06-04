@@ -75,11 +75,29 @@ jobs:
                       ['gh', 'issue', 'view', issue_num, '--repo', repo, '--json', 'title,body,author,state,number,projectItems', '--jq', jq_filter],
                       capture_output=True, text=True, check=True, timeout=30
                   )
-                  output = result.stdout.strip()
-                  output = output.replace('COLOR_Todo', 'green')
-                  output = output.replace('COLOR_In progress', 'orange')
-                  output = output.replace('COLOR_In review', 'grey')
-                  output = output.replace('COLOR_Done', 'blue')
+
+                  data = json.loads(result.stdout)
+                  # Извлекаем статус из первого попавшегося projectItem (если есть)
+                  status = "unknown"
+                  if data.get('projectItems'):
+                      # Берём первый элемент, у него есть status.name
+                      status = data['projectItems'][0].get('status', {}).get('name', 'no status')
+
+                  # Формируем бейдж
+
+                  status_color = "green" if status=="Todo" else "orange" if status=="In progress" else "blue" if status=="Done" else "grey"
+                  badge_url = f"https://img.shields.io/badge/-{status}-{status_color}"
+                  issue_url = f"https://github.com/{repo}/issues/{issue_num}"
+                  badge_md = f"[![Static Badge]({badge_url})](issue_url)"
+
+                  # Формируем итоговый Markdown
+                  # Формируем итоговый Markdown
+                  output = f"""### [#{data['number']}: {data['title']}]({data['url']}) {badge_md}
+                  
+                  **Автор:** @{data['author']['login']}
+                  
+                  {data['body']}
+                  """
               except subprocess.CalledProcessError as e:
                   output = f"⚠️ Ошибка при загрузке задачи #{issue_num}:\n{e.stderr.strip()}"
               except Exception as e:
