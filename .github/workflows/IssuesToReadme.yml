@@ -10,6 +10,7 @@ on:
 
 permissions:
   issues: read
+  projects: read
   contents: write
 
 jobs:
