@@ -73,6 +73,7 @@ jobs:
                   # Извлекаем статус из первого попавшегося projectItem (если есть)
                   status = "unknown"
                   if data.get('projectItems'):
+                      print(data.get('projectItems'))
                       # Берём первый элемент, у него есть status.name
                       status = data['projectItems'][0].get('status', {}).get('name', 'no status')
 
