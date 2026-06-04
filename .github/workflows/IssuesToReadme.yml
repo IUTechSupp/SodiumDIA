@@ -10,7 +10,7 @@ on:
 
 permissions:
   issues: read
-  projects: read
+  repository-projects: read
   contents: write
 
 jobs:
