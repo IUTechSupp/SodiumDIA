@@ -9,6 +9,7 @@ on:
   workflow_dispatch:  # ручной запуск
 
 permissions:
+  issues: read
   contents: write
 
 jobs:
