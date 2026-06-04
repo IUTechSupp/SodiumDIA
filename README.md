@@ -3,14 +3,15 @@
 
 <!-- ISSUE:2 start -->
 
+⚠️ Ошибка при загрузке задачи #2:
+GraphQL: Could not resolve to an issue or pull request with the number of 2. (repository.issue)
+
 <!-- ISSUE:2 end -->
 
 
 <!-- ISSUE:3 start -->
 
 ⚠️ Ошибка при загрузке задачи #3:
-gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable. Example:
-  env:
-    GH_TOKEN: ${{ github.token }}
+GraphQL: Could not resolve to an issue or pull request with the number of 3. (repository.issue)
 
 <!-- ISSUE:3 end -->
