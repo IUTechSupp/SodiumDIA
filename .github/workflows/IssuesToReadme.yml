@@ -31,9 +31,10 @@ jobs:
           sudo apt update
           sudo apt install gh
 
-      - name: Disable color
+      - name: Set gh flags
         run: |
           export NO_COLOR=1
+          export GH_FORCE_TTY=1
       
       - name: Update issues in README
         env:
@@ -72,8 +73,9 @@ jobs:
                   output = f"⚠️ Непредвиденная ошибка: {e}"
 
               # Возвращаем маркеры с новым содержимым между ними
-              return f"{start_marker}\n\n{output}\n\n{end_marker}"
+              return f"{start_marker}\n\n```\n{output}\n```\n\n{end_marker}"
 
+          
           new_content = re.sub(pattern, replacer, content, flags=re.DOTALL)
 
           if new_content != content:
