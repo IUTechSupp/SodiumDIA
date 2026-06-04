@@ -3,8 +3,7 @@
 
 <!-- ISSUE:5 start -->
 
-⚠️ Ошибка при загрузке задачи #5:
-accepts 1 arg(s), received 3
+⚠️ Непредвиденная ошибка: expected str, bytes or os.PathLike object, not tuple
 
 <!-- ISSUE:5 end -->
 
