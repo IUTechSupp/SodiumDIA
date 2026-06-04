@@ -35,6 +35,8 @@ jobs:
           export NO_COLOR=1
       
       - name: Update issues in README
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: update
         run: |
           python << 'EOF'
