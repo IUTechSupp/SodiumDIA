@@ -85,7 +85,7 @@ _N ≤ 17 - pos_x_
 
 
 ### 3.4.3.4 Рендер строк
-<!-- ISSUE:6 start -->
+<!-- ISSUE:7 start -->
 
 **Issue #6:** [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
 
@@ -93,4 +93,4 @@ _N ≤ 17 - pos_x_
 
 ---
 
-<!-- ISSUE:6 end -->
+<!-- ISSUE:7 end -->
