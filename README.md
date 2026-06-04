@@ -4,7 +4,7 @@
 ### 3.2.1 Тактовые кнопки
 <!-- ISSUE:2 start -->
 
-*Issue #2:* [![Static Badge](https://img.shields.io/badge/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/2)
+**Issue #2:** [![Static Badge](https://img.shields.io/badge/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/2)
 
 
 
@@ -15,7 +15,7 @@
 ### 3.2.3 Графический интерфейс
 <!-- ISSUE:3 start -->
 
-*Issue #3:* [![Static Badge](https://img.shields.io/badge/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/3)
+**Issue #3:** [![Static Badge](https://img.shields.io/badge/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/3)
 
 
 
@@ -26,7 +26,7 @@
 #### 3.2.3.1 Шрифт
 <!-- ISSUE:6 start -->
 
-*Issue #6:* [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
+**Issue #6:** [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
 
 
 
@@ -47,7 +47,7 @@
 #### 3.2.3.1 Вывод символа в ячее сетки
 <!-- ISSUE:4 start -->
 
-*Issue #4:* [![Static Badge](https://img.shields.io/badge/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0%20%D0%B2%20%D1%8F%D1%87%D0%B5%D0%B5%20%D1%81%D0%B5%D1%82%D0%BA%D0%B8-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/4)
+**Issue #4:** [![Static Badge](https://img.shields.io/badge/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0%20%D0%B2%20%D1%8F%D1%87%D0%B5%D0%B5%20%D1%81%D0%B5%D1%82%D0%BA%D0%B8-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/4)
 
 Размер шрифта позволяет использовать сетку 14х17 символов. Функция отрисовки символа в конкретной ячее сетки вычисляет начало этой ячеи и вызывает функцию отрисовки символа по этим координатам:
 
@@ -68,7 +68,7 @@ _border_y = (160 % FONT_HEIGHT) / 2 = 3.5 ~ 3_
 ### 3.4.3.3 Вывод слова
 <!-- ISSUE:5 start -->
 
-*Issue #5:* [![Static Badge](https://img.shields.io/badge/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%2C%20%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%8F%D1%87%D0%B5%D0%B8%20%D1%81%D0%B5%D1%82%D0%BA%D0%B8-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/5)
+**Issue #5:** [![Static Badge](https://img.shields.io/badge/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%2C%20%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%8F%D1%87%D0%B5%D0%B8%20%D1%81%D0%B5%D1%82%D0%BA%D0%B8-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/5)
 
 Функция вывода слова должна принимать x и y координаты начальной ячеи слова и отрисовывать N символов, начиная с этой ячеи, где:
 
@@ -87,7 +87,7 @@ _N ≤ 17 - pos_x_
 ### 3.4.3.4 Рендер строк
 <!-- ISSUE:6 start -->
 
-*Issue #6:* [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
+**Issue #6:** [![Static Badge](https://img.shields.io/badge/%D0%A8%D1%80%D0%B8%D1%84%D1%82-Done-blue)](https://github.com/IUTechSupp/SodiumDIA/issues/6)
 
 
 
