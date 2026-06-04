@@ -30,6 +30,10 @@ jobs:
           sudo apt update
           sudo apt install gh
 
+      - name: Disable color
+        run: |
+          export NO_COLOR=1
+      
       - name: Update issues in README
         id: update
         run: |
@@ -55,7 +59,7 @@ jobs:
               # Получаем вывод задачи через gh
               try:
                   result = subprocess.run(
-                      ['gh', 'issue', 'view', issue_num, '--repo', repo, '--no-color'],
+                      ['gh', 'issue', 'view', issue_num, '--repo', repo],
                       capture_output=True, text=True, check=True, timeout=30
                   )
                   output = result.stdout.strip()
