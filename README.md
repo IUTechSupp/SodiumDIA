@@ -3,7 +3,7 @@
 
 <!-- ISSUE:5 start -->
 
-### Issue #5: Вывод слова, начиная с ячеи сетки [![Static Badge](https://img.shields.io/badge/-unknown-grey)](https://github.com/IUTechSupp/SodiumDIA/issues/5) 
+### Issue #5: Вывод слова, начиная с ячеи сетки [![Static Badge](https://img.shields.io/badge/-Todo-green)](https://github.com/IUTechSupp/SodiumDIA/issues/5) 
 
 
 **Автор:** @SodAcetate 
