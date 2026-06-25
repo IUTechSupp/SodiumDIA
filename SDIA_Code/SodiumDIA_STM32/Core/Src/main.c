@@ -98,13 +98,22 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   ST7735_Select();
-  ST7735_DrawRect(0, 0, ST7735_X_SIZE, ST7735_Y_SIZE, ST7735_COLOR_RED);
+  ST7735_DrawRect(0, 0, ST7735_X_SIZE, ST7735_Y_SIZE, ST7735_COLOR_BLACK);
   ST7735_Deselect();
+  uint16_t color_bg = 0;
+
+  // draw_string_in_grid(0, 0, "SodiumDIA", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+  // draw_string_in_grid(0, 1, "STM32F103C8T6", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+  // draw_string_in_grid(3, 2, "Font test", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+  // draw_string_in_grid(0, 3, "longlonglonglonglong", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+  draw_string_in_grid(3, 4, "Студ_ИУ", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+  draw_string_in_grid(1, 6, "Техническое", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+  draw_string_in_grid(1, 7, "Обеспечение", ST7735_COLOR_WHITE, ST7735_COLOR_BLACK);
+
   while (1)
   {
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, (i & 2) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    load_character(i);
-    draw_loaded_character((j % 14) * 9, (j / 14) * 9, ST7735_COLOR_WHITE);
+    color_bg = (i + i / 14) % 2 == 0 ? ST7735_COLOR_RED : ST7735_COLOR_BLACK;
+    draw_character_in_grid((j % 14), (j / 14), i, ST7735_COLOR_WHITE, color_bg);
     i++;
     j++;
 

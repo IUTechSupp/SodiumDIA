@@ -33,19 +33,48 @@ uint8_t load_character(uint8_t character_code)
     return 0;
 }
 
-uint8_t draw_loaded_character(uint16_t cStart, uint16_t rStart, uint16_t color)
+uint8_t draw_loaded_character(uint16_t cStart, uint16_t rStart, uint16_t color, uint16_t bg_color)
 {
     ST7735_Select();
     ST7735_SetColAddr(cStart, cStart + FONT_WIDTH - 1);
     ST7735_SetRowAddr(rStart, rStart + FONT_HEIGHT - 1);
 
     ST7735_SendCommand(ST7735_RAMWR); // Говорим дисплею: "Сейчас пойдут пиксели"
-    // Попиксельно отправляем картинку из массива
+
+    HAL_GPIO_WritePin(ST7735_DC_PORT, ST7735_DC_PIN, GPIO_PIN_SET); // Попиксельно отправляем картинку из массива
     for (int i = 0; i < FONT_HEIGHT * FONT_WIDTH; i++)
     {
-        uint16_t pixel_color = character[i / FONT_WIDTH][i % FONT_WIDTH] ? color : ST7735_COLOR_BLACK;
-        ST7735_SendData(pixel_color & 0xFF00 >> 8); // Старший байт цвета (R и часть G)
-        ST7735_SendData(pixel_color & 0x00FF);      // Младший байт цвета (часть G и B)
+        uint16_t pixel_color = character[i / FONT_WIDTH][i % FONT_WIDTH] ? color : bg_color;
+        ST7735_SendByte((pixel_color & 0xFF00) >> 8); // Старший байт цвета (R и часть G)
+        ST7735_SendByte(pixel_color & 0x00FF);        // Младший байт цвета (часть G и B)
     }
     ST7735_Deselect();
+}
+
+uint8_t draw_character(uint16_t cStart, uint16_t rStart, uint8_t character_code, uint16_t color, uint16_t bg_color)
+{
+    load_character(character_code);
+    draw_loaded_character(cStart, rStart, color, bg_color);
+}
+
+uint8_t draw_character_in_grid(uint16_t x, uint16_t y, uint8_t character_code, uint16_t color, uint16_t bg_color)
+{
+    load_character(character_code);
+    int offset_y = BORDER_Y + y * FONT_HEIGHT;
+    int offset_x = BORDER_X + x * FONT_WIDTH;
+
+    draw_loaded_character(offset_x, offset_y, color, bg_color);
+}
+
+uint8_t draw_string_in_grid(uint16_t x, uint16_t y, char *string, uint16_t color, uint16_t bg_color)
+{
+    for (int i = 0; string[i] != '\0'; i++)
+    {
+        if (x + i + 1 == ROW_LENGTH)
+        {
+            draw_character_in_grid(x + i, y, 0x20, color, bg_color);
+            break;
+        }
+        draw_character_in_grid(x + i, y, string[i], color, bg_color);
+    }
 }
