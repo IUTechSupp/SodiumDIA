@@ -55,7 +55,8 @@ Core/Src/sysmem.c \
 Core/Src/syscalls.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c \
 Core/Src/st7735.c \
-Core/Src/font/font.c
+Core/Src/font/font.c \
+Core/Src/gui.c
 
 # ASM sources
 ASM_SOURCES =  \
