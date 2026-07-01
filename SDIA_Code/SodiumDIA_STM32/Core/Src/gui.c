@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 struct Row Rows[17];
-uint8_t selected_row_index;
+uint8_t selected_row_index = 0;
 struct Parameter Parameters[64];
 
 struct Label make_label(uint8_t x, uint16_t bg_color, uint16_t text_color, const char *text, char *hint)
@@ -47,10 +47,8 @@ uint8_t add_label(struct Row *row, struct Label label)
 
 uint8_t draw_row(uint8_t index, struct Row *row, uint8_t selected)
 {
-    if (selected)
-    {
-        draw_string_in_grid(0, index, "              ", DEFAULT_SELECTED_BG, DEFAULT_SELECTED_BG);
-    }
+    uint16_t bg_color = selected ? DEFAULT_SELECTED_BG : DEFAULT_BG;
+    draw_string_in_grid(0, index, "              ", bg_color, bg_color); // Очистка строки перед отрисовкой
     for (int i = 0; i < row->labels; i++)
     {
         struct Label *label = &row->content[i];
@@ -61,9 +59,21 @@ uint8_t draw_row(uint8_t index, struct Row *row, uint8_t selected)
     return 0;
 }
 
+uint8_t draw_row_by_index(uint8_t index)
+{
+    uint8_t selected = (index == selected_row_index);
+    struct Row *row = &Rows[index];
+    return draw_row(index, row, selected);
+}
+
 uint8_t select_next()
 {
+    uint8_t old_index = selected_row_index;
     selected_row_index++;
+    if (Rows[old_index].type != UNSELECTABLE)
+    {
+        draw_row_by_index(old_index);
+    }
     if (selected_row_index >= 17)
     {
         selected_row_index = 0;
@@ -72,13 +82,21 @@ uint8_t select_next()
     {
         return select_next();
     }
-    draw_gui();
+
+    draw_row_by_index(selected_row_index);
     return 0;
 }
+
 uint8_t select_previous()
 {
+    uint8_t old_index = selected_row_index;
     selected_row_index--;
-    if (selected_row_index >= 17)
+    if (Rows[old_index].type != UNSELECTABLE)
+    {
+        draw_row_by_index(old_index);
+    }
+
+    if (selected_row_index >= 0xFF)
     {
         selected_row_index = 16;
     }
@@ -86,7 +104,8 @@ uint8_t select_previous()
     {
         return select_previous();
     }
-    draw_gui();
+
+    draw_row_by_index(selected_row_index);
     return 0;
 }
 
@@ -129,6 +148,10 @@ uint8_t compile_gui()
     add_label(&row_frame, make_label(0, ST7735_COLOR_BLACK, DEFAULT_COLOR, "3: ИО ТО_ИУ", NULL));
     Rows[6] = row_frame;
 
+    row_frame = make_row(UNSELECTABLE);
+    add_label(&row_frame, make_label(5, DEFAULT_BG, DEFAULT_COLOR, "X", NULL));
+    Rows[7] = row_frame;
+
     selected_row_index = 2;
 }
 uint8_t draw_gui()
@@ -138,7 +161,7 @@ uint8_t draw_gui()
     {
         if (&Rows[i] == NULL)
             continue;
-        draw_row(i, &Rows[i], (i == selected_row_index));
+        draw_row_by_index(i);
     }
     return 0;
 }

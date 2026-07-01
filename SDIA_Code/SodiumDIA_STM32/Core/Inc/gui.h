@@ -39,11 +39,16 @@ struct Parameter
     char hint[16];
 };
 
+extern struct Row Rows[];
+extern uint8_t selected_row_index;
+extern struct Parameter Parameters[];
+
 struct Label make_label(uint8_t x, uint16_t bg_color, uint16_t text_color, const char *text, char *hint);
 struct Row make_row(uint8_t type);
 uint8_t add_label(struct Row *row, struct Label label);
 
 uint8_t draw_row(uint8_t index, struct Row *row, uint8_t selected);
+uint8_t draw_row_by_index(uint8_t index);
 uint8_t select_next();
 uint8_t select_previous();
 uint8_t set_parameter(char *hint, char *value);
